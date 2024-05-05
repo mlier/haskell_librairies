@@ -1,2 +1,2 @@
-# haskell_librairies
+# Les librairies Haskell
 Comment démarrer avec les librairies Haskell ? 
