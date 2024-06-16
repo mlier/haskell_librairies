@@ -140,7 +140,8 @@ La fonction `laxElement` (lax pour relaché ou souple) permet de choisir les noe
 
 On obtient :
 ```json
-["Ellen Adams","123 Maple Street","Mill Valley","CA","10999", "USA","Mary Adams","8 Oak Avenue","Old Town","PA","95819","USA"]
+["Ellen Adams","123 Maple Street","Mill Valley","CA","10999", "USA",
+"Mary Adams","8 Oak Avenue","Old Town","PA","95819","USA"]
 ```
 
 ### Récupération impossible des noeuds "address" en mode stricte
@@ -165,7 +166,8 @@ Par contre, si on donne le nom exact du noeud présent dans le flux XML, la fonc
 
 On obtient :
 ```json
-["Ellen Adams","123 Maple Street","Mill Valley","CA","10999", "USA","Mary Adams","8 Oak Avenue","Old Town","PA","95819","USA"]
+["Ellen Adams","123 Maple Street","Mill Valley","CA","10999", "USA",
+"Mary Adams","8 Oak Avenue","Old Town","PA","95819","USA"]
 ```
 
 ### Récupérer le contenu de tous les noeuds "comment"
@@ -195,7 +197,11 @@ cursor
 
 On obtient : 
 ```json 
-["Ellen Adams","123 Maple Street","Mill Valley","CA","10999","USA","Mary Adams","8 Oak Avenue","Old Town","PA","95819","USA","Please use gift wrapping!","Harry Potter and the Prisoner of Azkaban","1","22.94","Please confirm delivery date until Christmas.","The Lord of the Rings","1","17.74","Dune 1","1","14.0"]
+["Ellen Adams","123 Maple Street","Mill Valley","CA","10999","USA",
+"Mary Adams","8 Oak Avenue","Old Town","PA","95819","USA",
+"Please use gift wrapping!","Harry Potter and the Prisoner of Azkaban",
+"1","22.94","Please confirm delivery date until Christmas.",
+"The Lord of the Rings","1","17.74","Dune 1","1","14.0"]
 ```
 
 ### Récupérer le contenu du noeud "items" dans le noeud "order"
@@ -210,7 +216,8 @@ Ici on prend les enfants `order` du noeud racine, puis on prend les enfants `ite
 
 On obtient : 
 ```json
-["Harry Potter and the Prisoner of Azkaban","1","22.94","Please confirm delivery date until Christmas.","The Lord of the Rings","1","17.74","Dune 1","1","14.0"]
+["Harry Potter and the Prisoner of Azkaban","1","22.94",
+"Please confirm delivery date until Christmas.","The Lord of the Rings","1","17.74","Dune 1","1","14.0"]
 ```
 
 ### Récupérer le contenu de tous les noeuds "items"
@@ -224,7 +231,9 @@ Ici, on prend tous les noeuds `items` parmi les descendants du noeud racine. Pui
 
 On obient : 
 ```json
-["Harry Potter and the Prisoner of Azkaban","1","22.94","Please confirm delivery date until Christmas.","The Lord of the Rings","1","17.74","Dune 1","1","14.0"]
+["Harry Potter and the Prisoner of Azkaban","1","22.94",
+"Please confirm delivery date until Christmas.",
+"The Lord of the Rings","1","17.74","Dune 1","1","14.0"]
 ```
 
 ### Récupérer le contenu du noeud "items"
@@ -248,7 +257,9 @@ Ici, c'est la même requête que ci-dessus en utilisant `$//` et non `$/`. Donc,
 
 On obtient : 
 ```json
-["Harry Potter and the Prisoner of Azkaban","1","22.94","Please confirm delivery date until Christmas.","The Lord of the Rings","1","17.74","Dune 1","1","14.0"]
+["Harry Potter and the Prisoner of Azkaban","1","22.94",
+"Please confirm delivery date until Christmas.",
+"The Lord of the Rings","1","17.74","Dune 1","1","14.0"]
 ```
 
 ### Récupérer le contenu de l'élément "title" dans l'élément "book"
@@ -292,7 +303,9 @@ Si on part d'un livre, il peut être nécessaire de revenir à son parent pour e
 
 On obtient alors : 
 ```json
-["Harry Potter and the Prisoner of Azkaban","1","22.94","Please confirm delivery date until Christmas.","The Lord of the Rings","1","17.74","Dune 1","1","14.0"]
+["Harry Potter and the Prisoner of Azkaban","1","22.94",
+"Please confirm delivery date until Christmas.",
+"The Lord of the Rings","1","17.74","Dune 1","1","14.0"]
 ```
 
 ### Récupérer le contenu du noeud "book" avec un  attribut "isbn" défini
@@ -307,7 +320,8 @@ Ici `>=> attributeIs "isbn" "9781408845660"` filtre les livres sélectionnés en
 
 On obtient le livre d'Harry Potter : 
 ```json
-["Harry Potter and the Prisoner of Azkaban","1","22.94","Please confirm delivery date until Christmas."]
+["Harry Potter and the Prisoner of Azkaban","1","22.94",
+"Please confirm delivery date until Christmas."]
 ```
 
 ### Obtenir la liste des livres (en mode bizarre)
@@ -324,7 +338,9 @@ Ici on sélectionne un livre particulier, puis on remonte au parent pour sélect
 
 On obtient : 
 ```json
-["Harry Potter and the Prisoner of Azkaban","1","22.94","Please confirm delivery date until Christmas.","The Lord of the Rings","1","17.74","Dune 1","1","14.0"]
+["Harry Potter and the Prisoner of Azkaban","1","22.94",
+"Please confirm delivery date until Christmas.",
+"The Lord of the Rings","1","17.74","Dune 1","1","14.0"]
 ```
 
 ### Liste des livres ayant un attribut "isbn" défini
@@ -427,7 +443,9 @@ On filtre sur les éléments en récupérant d'abord le `Name` de l'élément (d
 
 On obtient la liste de tous les livres : 
 ```json
-["Harry Potter and the Prisoner of Azkaban","1","22.94","Please confirm delivery date until Christmas.","The Lord of the Rings","1","17.74","Dune 1","1","14.0"]
+["Harry Potter and the Prisoner of Azkaban","1","22.94",
+"Please confirm delivery date until Christmas.",
+"The Lord of the Rings","1","17.74","Dune 1","1","14.0"]
 ```
 
 ### Liste des livres dont le titre contient le mot "of the" (utilisation des `Element`)
@@ -446,7 +464,9 @@ On filtre sur les éléments en les transformant au moyen de `toXMLElement` de `
 
 On obtient le livre du Seigneur des anneaux : 
 ```json
-["Harry Potter and the Prisoner of Azkaban","1","22.94","Please confirm delivery date until Christmas.","The Lord of the Rings","1","17.74","Dune 1","1","14.0"]
+["Harry Potter and the Prisoner of Azkaban","1","22.94",
+"Please confirm delivery date until Christmas.",
+"The Lord of the Rings","1","17.74","Dune 1","1","14.0"]
 ```
 
 ### (. free) Liste des livres dont le titre contient le mot "of the" (utilisation des `Element`)
@@ -498,7 +518,8 @@ Le filtrage sur les noeuds `Cursor` va renvoyer tous les noeuds `priceus`contena
 
 On obtient : 
 ```json
-["Harry Potter and the Prisoner of Azkaban","1","22.94","Please confirm delivery date until Christmas."]
+["Harry Potter and the Prisoner of Azkaban","1","22.94",
+"Please confirm delivery date until Christmas."]
 ```
 
 ### Liste des livres avec un prix supérieur à 19 (utilisation des `Node`)
@@ -515,3 +536,8 @@ cursor
 
 Ici le filtrage est réalisé sur des noeuds XML `Node` défini dans xml-conduit. La fonction `toXMLNode` réalise une transformation de type `Node -> Node` compatible avec la librairie xml-types. Ensuite, tout s'enchaîne, on transforme les noeuds en texte, puis en entier, puis en boléen (comparaison à 19).
 
+On obtient : 
+```json
+["Harry Potter and the Prisoner of Azkaban","1","22.94",
+"Please confirm delivery date until Christmas."]
+```

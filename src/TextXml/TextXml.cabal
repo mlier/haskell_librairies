@@ -10,6 +10,8 @@ author:             mlier
 maintainer:         mlier@free.fr
 build-type:         Simple
 
+with-compiler:      ghc-8.6.3
+
 common warnings
     ghc-options: -Wall
 
