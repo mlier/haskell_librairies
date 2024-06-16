@@ -231,12 +231,12 @@ xmlc i = case i of
         doc = Document (Prologue [] Nothing []) books []
         priceEqualFromCursor c = T.concat (c $// content) == "17.74"  
         priceSupFromCursor c = 19 < ( read . T.unpack . T.concat $ (c $// content) :: Double )
-        priceSupFromNode c = priceSupFromNode' c > 19.0
+        priceSupFromNode n = priceSupFromNode' n > 19.0
         priceSupFromNode' =  ( read . T.unpack . T.concat . nodeText . toXMLNode )::  Node -> Double
         titleFromElement e = "title" `T.isPrefixOf` nameLocalName (elementName e)
-        lordFromElement e = "Lord" `T.isInfixOf` T.concat (elementText $ toXMLElement e)
-        lordFromElement1 = ("Lord" `T.isInfixOf`) . T.concat . elementText . toXMLElement
-        lordFromNode = ("Lord" `T.isInfixOf`) . T.concat . nodeText . toXMLNode
+        lordFromElement e = "of the" `T.isInfixOf` T.concat (elementText $ toXMLElement e)
+        lordFromElement1 = ("of the" `T.isInfixOf`) . T.concat . elementText . toXMLElement
+        lordFromNode = ("of the" `T.isInfixOf`) . T.concat . nodeText . toXMLNode
         
 
 
