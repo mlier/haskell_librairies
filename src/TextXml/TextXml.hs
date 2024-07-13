@@ -1,6 +1,8 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE QuasiQuotes       #-}
 
+module Main where
+
 import           Data.Text (Text)
 import qualified Data.Text as T
 
@@ -239,4 +241,6 @@ xmlc i = case i of
         lordFromNode = ("of the" `T.isInfixOf`) . T.concat . nodeText . toXMLNode
         
 
-
+main :: IO ()
+main = do 
+        putStrLn "TextXml"
