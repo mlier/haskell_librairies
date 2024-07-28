@@ -1,10 +1,10 @@
 # Réaliser des requêtes SOAP 
 
-Pour réaliser des requêtes SOAP nous allons utiliser des serveurs SOAP existants qui sont décrits dans la page du site postman : [ici](https://www.postman.com/flight-candidate-55766172/workspace/my-workspace/collection/28173379-5deaf6d4-cd85-4f92-9fd7-9d0e8abc86b9). Décrivons un exemple qui va permettre de faire fonctionner la bibliothèques `soap` publiée sur [hackage](https://hackage.haskell.org/package/soap). 
+Pour réaliser des requêtes SOAP nous allons utiliser des serveurs SOAP existants qui sont décrits dans la page du site postman : [ici](https://www.postman.com/flight-candidate-55766172/workspace/my-workspace/collection/28173379-5deaf6d4-cd85-4f92-9fd7-9d0e8abc86b9). Décrivons un exemple très simple et utilisons la bibliothèques `soap` publiée sur [hackage](https://hackage.haskell.org/package/soap). 
 
 ## Faire une division
 
-Nous utilisons la serveur soap de www.dneonline.com pour simuler des divisions par une requêt SOAP. La requête curl permet d'appeler le webservice.
+Nous utilisons la serveur soap de [www.dneonline.com](http://www.dneonline.com/calculator.asmx) pour simuler des divisions au moyen d'une requêt SOAP. La requête curl suivante permet de faire fonctionner le webservice.
 
 ```bash
 curl --location 'http://www.dneonline.com/calculator.asmx' \
@@ -23,7 +23,7 @@ curl --location 'http://www.dneonline.com/calculator.asmx' \
 </soap:Envelope>'
 ```
 
-On obtient la réponse suivante, 10 / 5 = 2 :) : 
+On obtient la réponse suivante, 10 / 5 = 2 :smile: : 
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -51,9 +51,9 @@ import qualified Text.XML.Writer as XW
 import           Data.Text (Text)
 ```
 
-
-- `initTransportWithM` qui permet de définir l'url du webservice appelé, de fournir des éléments de configuration particulier (ajout d'un niveau de sécurité TLS), de donner les éléments d'authentification si nécessaire et d'afficher si nécessaire la requête et la réponse pour pouvoir mettre au point le code.
-- `invokeWS` qui permet d'appeler le webservice concrêtement et de définir comment traiter la réponse. 
+Voici les deux principales fonctions à utiliser : 
+- `initTransportWithM` permet de définir l'url du webservice appelé, de fournir des éléments de configuration particuliers (ajout d'un niveau de sécurité TLS), de donner les éléments d'authentification si nécessaire et d'afficher si vous le souhaitez la requête et la réponse pour pouvoir mettre au point le code.
+- `invokeWS` permet d'appeler le webservice concrêtement et de définir comment traiter la réponse. 
 
 ```haskell
 divide :: IO [Text]
@@ -100,10 +100,10 @@ response:<?xml version="1.0" encoding="utf-8"?>
 </soap:Envelope>
 ```
 
-Dans le code source du github [ici](../src/SoapRequest/) vous trouverez plusieurs autres exemples de requêtes vers d'autres webservices. Par exemple, celui-ci qui est similaire. Remarquez l'utilisation de `makeSettings`, utilisant la couche TLS pour appeler un site `https` qui, dans ce cas là, n'exige pas de mot de passe. 
+Dans le code source du github [ici](../src/SoapRequest/) vous trouverez plusieurs autres exemples de requêtes vers d'autres webservices. Par exemple, celui-ci qui est similaire. Remarquez l'utilisation de `makeSettings`, utilisant la couche TLS pour appeler un site `https` qui, dans ce cas là, n'exige pas de mot de passe. Vous pouvez utiliser les exemples en lançant la commande `cabal repl` puis une fois dans `ghci` taper le nom de chaque fonction.
 
 ```haskell
-elsiusToFahrenheit :: IO Text 
+celsiusToFahrenheit :: IO Text 
 celsiusToFahrenheit = do
     settings <- makeSettings Nothing Nothing validateDefault
     let url = "https://www.w3schools.com/xml/tempconvert.asmx"
@@ -126,7 +126,7 @@ celsiusToFahrenheit = do
 
 
 
-## Conclusion
+## En résumé
 
 Dans cet article, on a appris à manipuler la librairie `soap`qui permet de réaliser des requêtes vers des webservices SOAP. 
 

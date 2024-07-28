@@ -541,3 +541,8 @@ On obtient :
 ["Harry Potter and the Prisoner of Azkaban","1","22.94",
 "Please confirm delivery date until Christmas."]
 ```
+
+## En rémsumé
+Dans cet article, nous avons pu apprendre à utiliser certaines librairies pour manipulier du XML : `hamlet`, `xml-conduit`.
+
+© mlier, 2024
