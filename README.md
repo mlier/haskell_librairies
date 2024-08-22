@@ -7,6 +7,7 @@ C'est ce que j'essaye de faire dans cette proposition. Vous retrouverez ci-desso
 
 - [Faire des requêtes vers un webservice SOAP](articles/SoapRequest.md)
 - [Manipuler du XML avec Haskell (XML-Hamlet et Text.XML.Cursor)](articles/TextXml.md)
+- [Comprendre les dépendances d'un projet Haskell](articles/CabalPlan.md)
 
 
 
