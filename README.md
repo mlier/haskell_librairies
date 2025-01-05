@@ -5,7 +5,7 @@ Souvent quand j'essaye de trouver une librairie Haskell pour mon besoin, j'ai du
 
 C'est ce que j'essaye de faire dans cette proposition. Vous retrouverez ci-dessous les tests de librairies qui m'ont intéressées. 
 
-- [Résoudre des problèmes de satisfaction de contraintes (CSP)](articles/CSP.md)
+- [Résoudre des problèmes de satisfaction de contraintes (CSP)](articles/Csp.md)
 - [Comprendre les dépendances d'un projet Haskell](articles/CabalPlan.md)
 - [Faire des requêtes vers un webservice SOAP](articles/SoapRequest.md)
 - [Manipuler du XML avec Haskell (XML-Hamlet et Text.XML.Cursor)](articles/TextXml.md)
